@@ -45,6 +45,7 @@ namespace EmployeeWageComputationProblemUsingOOPs
             }
             empWage = empHrs * emp_Rate_Per_Hr;
             Console.WriteLine("Employee Wage: " + empWage);
+            //Added Part Time
         }
     }
 }
