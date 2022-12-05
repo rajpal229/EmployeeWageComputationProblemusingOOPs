@@ -8,7 +8,7 @@ namespace EmployeeWageComputationProblemUsingOOPs
 {
     internal class WageComputation
     {
-        int fullTime = 1, partTime = 2, emp_Rate_Per_Hr = 20, empHrs = 0, empWage = 0, numWorkingDays=20, totalSalary=0;
+        int fullTime = 1, partTime = 2, emp_Rate_Per_Hr = 20, empHrs = 0, empWage = 0, numWorkingDays=20, totalSalary=0, totalWorkingHours=0;
         public int EmployeeAttendance()
         {
             int fullTime = 1;
@@ -69,13 +69,38 @@ namespace EmployeeWageComputationProblemUsingOOPs
             Console.WriteLine("Employee Wage: " + empWage);
             return empWage;
         }
+        public int empHrsReturn()
+        {
+            int Attendence = EmployeeAttendance();
+            switch (Attendence)
+            {
+                case 1:
+                    empHrs = 8;
+                    break;
+                case 2:
+                    empHrs = 4;
+                    break;
+                default:
+                    empHrs = 0;
+                    break;
+            }
+            return empHrs;
+        }
             public void MonthlyWage()
         {
-            for (int day = 1; day <= numWorkingDays; day++)
+            for (int day = 1; (day <= numWorkingDays && totalWorkingHours <=100); day++)
             {
                 SwitchCase();
+                empHrsReturn();
+                totalWorkingHours += empHrs;
+                if (totalWorkingHours > 100)
+                {
+                    totalWorkingHours -= empHrs;
+                    break;
+                }
                 totalSalary = totalSalary + empWage;
             }
+            Console.WriteLine("Total Working Hours of Employee: " + totalWorkingHours);
             Console.WriteLine("Total Salary of a Month: " + totalSalary);
         }
     }
