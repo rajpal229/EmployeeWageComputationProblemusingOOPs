@@ -8,7 +8,7 @@ namespace EmployeeWageComputationProblemUsingOOPs
 {
     internal class WageComputation
     {
-        int fullTime = 1, partTime = 2, emp_Rate_Per_Hr = 20, empHrs = 0, empWage = 0;
+        int fullTime = 1, partTime = 2, emp_Rate_Per_Hr = 20, empHrs = 0, empWage = 0, numWorkingDays=20, totalSalary=0;
         public int EmployeeAttendance()
         {
             int fullTime = 1;
@@ -47,7 +47,7 @@ namespace EmployeeWageComputationProblemUsingOOPs
             Console.WriteLine("Employee Wage: " + empWage);
             Console.WriteLine("Using If-Else\n");
         }
-        public void SwitchCase()
+        public int SwitchCase()
         {
             int Attendence = EmployeeAttendance();
             switch (Attendence)
@@ -67,7 +67,16 @@ namespace EmployeeWageComputationProblemUsingOOPs
             }
             empWage = empHrs * emp_Rate_Per_Hr;
             Console.WriteLine("Employee Wage: " + empWage);
-            Console.WriteLine("Using Switch Case");
+            return empWage;
+        }
+            public void MonthlyWage()
+        {
+            for (int day = 1; day <= numWorkingDays; day++)
+            {
+                SwitchCase();
+                totalSalary = totalSalary + empWage;
+            }
+            Console.WriteLine("Total Salary of a Month: " + totalSalary);
         }
     }
 }

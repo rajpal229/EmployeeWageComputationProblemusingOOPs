@@ -5,10 +5,8 @@
         static void Main(string[] args)
         {
             Console.WriteLine("Welcome to Employee Wage Computation Problem");
-            WageComputation dailyWage = new WageComputation();
-            dailyWage.DailyWage();
-            WageComputation switchCase = new WageComputation();
-            switchCase.SwitchCase();
+            WageComputation monthlyWage = new WageComputation();
+            monthlyWage.MonthlyWage();
         }
     }
 }
