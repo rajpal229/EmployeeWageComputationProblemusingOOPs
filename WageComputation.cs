@@ -8,7 +8,8 @@ namespace EmployeeWageComputationProblemUsingOOPs
 {
     internal class WageComputation
     {
-        public void EmployeeAttendance()
+        int fullTime = 1, partTime = 2, emp_Rate_Per_Hr = 20, empHrs = 0, empWage = 0;
+        public int EmployeeAttendance()
         {
             int fullTime = 1;
             Random rannum = new Random();
@@ -21,7 +22,29 @@ namespace EmployeeWageComputationProblemUsingOOPs
             else
             {
                 Console.WriteLine("Employee is Absent");
-            } 
+            }
+            return checkPresent;
+        }
+        public void DailyWage()
+        {
+            int Attendence = EmployeeAttendance();
+            if (Attendence == 1)
+            {
+                empHrs = 8;
+                Console.WriteLine("Employee is Present Full Time");
+            }
+            else if (partTime == 2)
+            {
+                empHrs = 4;
+                Console.WriteLine("Employee is Present Part Time");
+            }
+            else
+            {
+                empHrs = 0;
+                Console.WriteLine("Employee is Absent");
+            }
+            empWage = empHrs * emp_Rate_Per_Hr;
+            Console.WriteLine("Employee Wage: " + empWage);
         }
     }
 }
