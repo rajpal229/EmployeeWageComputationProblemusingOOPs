@@ -45,7 +45,29 @@ namespace EmployeeWageComputationProblemUsingOOPs
             }
             empWage = empHrs * emp_Rate_Per_Hr;
             Console.WriteLine("Employee Wage: " + empWage);
-            //Added Part Time
+            Console.WriteLine("Using If-Else\n");
+        }
+        public void SwitchCase()
+        {
+            int Attendence = EmployeeAttendance();
+            switch (Attendence)
+            {
+                case 1:
+                    empHrs = 8;
+                    Console.WriteLine("Employee is Present Full TIme");
+                    break;
+                case 2:
+                    empHrs = 4;
+                    Console.WriteLine("Employee is Present Part Time");
+                    break;
+                default:
+                    empHrs = 0;
+                    Console.WriteLine("Employee is Absent");
+                    break;
+            }
+            empWage = empHrs * emp_Rate_Per_Hr;
+            Console.WriteLine("Employee Wage: " + empWage);
+            Console.WriteLine("Using Switch Case");
         }
     }
 }

@@ -7,7 +7,8 @@
             Console.WriteLine("Welcome to Employee Wage Computation Problem");
             WageComputation dailyWage = new WageComputation();
             dailyWage.DailyWage();
-            //Added PartTime
+            WageComputation switchCase = new WageComputation();
+            switchCase.SwitchCase();
         }
     }
 }
